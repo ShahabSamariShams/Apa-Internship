@@ -1,0 +1,6 @@
+Chapter 1:
+Why linux? Discovery and Exploitation of vulnerabilities and privilege escalation. Servers are mostly on linux.
+Shell? Command-line intrepreter.(human lang to machine lang.)(e.g bash, sh, zsh)(bash and zsh are improved versions of sh.)
+<Shell-name> profile? shell's configuration.
+Path? directories of executable programs.
+command: echo $SHELL -> prints your shell type.

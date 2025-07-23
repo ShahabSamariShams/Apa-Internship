@@ -1,0 +1,21 @@
+Chapter 1:
+Why? Every web site has js, Exploit and Discovery of vulnerabilities(XSS), bypass security devices(Firewalls), narrow recon conduction.
+client <-> browser <-> html/js <-> server
+rendering? execution of html code in a graphic form.
+
+Browser parts{
+    User Interface(if ui does not exist, we have a "headless browser". it works on command-line.)
+    Rendering Engine*(heart of the browser.)
+    Browser Engine
+    Networking
+    JavaScript Interpreter*
+    Data Storage(cookies)
+}
+
+HTML? is a standard markup lang. creates and structures content on the web. has predefined tags and elements. Gets interpreted by browser-
+-for content display.
+ <a href='some link'>   ->    a is a tag. href is an attribute. some limk is the value.
+ <script></script>      -> contains js codes. this get interpreted and executed by js interpreter.
+ render <=> parse
+
+ Browser Console? allows the developers to interavt with the js. you can see the js outputs and run js code in this environment.

@@ -1,0 +1,9 @@
+Chapter 1:
+Why? Web app comprehension, automation, tool making, exploitation.
+Programming? process code creation, understandable and executable by comp.
+Interpreter or Compiler.
+Syntax? rules and conventions of code.
+Package manager? simplifier of installation, managemnet and updating pf third party libraries.
+
+Install python3.
+Install pip3.(Python Package Installer)

@@ -1,0 +1,38 @@
+Chapter 1:
+Why network? internet's universality. Exploitation and discovery. security device bypassing. side recon conduction.
+Bypass? circumventing security measures.
+Exploit? taking advantage of vulnerabilities.
+Protocol? rule set gor communication.
+Client? a comp in network.
+Server? serves data.
+Internet? gigantic network of clients and servers.
+
+OSI? Refernece model for dissimilar environments communication.
+Layers?
+Application*: SSH, HTTP, SMTP.
+Presentation: Compression and encryption.(SSL)
+Session: Connection managemnet without error.
+Transport*: TCP and UDP.(assemler if number sequences.)
+Network*: IP address, routing.
+Data link: Mac/physical address.
+Physical: Electrons.
+
+IP? internet address for reaching a comp.
+Port? various channels for communication.
+Router? routes the traffic to a destination.
+notation-> <IP>:<port>
+Each port has a different service.
+
+TCP: connection-oriented.(trustable)
+UDP: connectionless.(eg dns.)
+
+TCP flags: SYN(synchronization), ACK(acknowledgemnet)
+TCP three way hand shake: syn, syn/ack, ack.
+
+nc tool:
+nc -lvp <portnumber> -> listen on the given port.
+nc <ip> <port> -> connect to this ip address and port number over tcp.
+
+wireshark tools:
+ip.dst==<ip> -> filters packets with a particular dst.
+follow <Protocol> stream -> observe the packets.

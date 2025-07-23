@@ -1,0 +1,13 @@
+Chapter 1:
+Why? SQLi, Mass Assignment, and IDOR.
+Why database? manageable, efficient storing, easier organize, access and analyze.
+SQL? structured query lang. manage relational dbs. enables user interaction with db.(owasp related.)
+NoSQL? not only sql. not relational, handles unstructured data.
+query? how you talk to db.
+root? a user that exists by default. has access to everything. other uers have limited access normally.
+Structure? database -> table(e.g. users) -> column(e.g. users' attributes) -> data
+Relational? IDs connecting e.g. user and book(s).
+
+MySQL:
+mysql-secure-installation
+there exists some default dbs.
