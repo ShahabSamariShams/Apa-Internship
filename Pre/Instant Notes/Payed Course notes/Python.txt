@@ -7,3 +7,67 @@ Package manager? simplifier of installation, managemnet and updating pf third pa
 
 Install python3.
 Install pip3.(Python Package Installer)
+
+------------------------------------------------------
+
+Chapter 2:
+
+*indentation matters.*
+
+variables:
+<code starts.>
+x = 10        #int
+x = "mamad"   #string
+x = True      #bool
+x = [1, 2, 3] #array
+person = {'name': 'mamad', 'age': 20} #dictionary
+person.get('name')
+<code ends.>
+
+conditional:
+<code starts.>
+if <condition>:
+    #do this
+else:
+    #do this
+<code ends.>
+*indentation matters.*
+
+loop:
+<code starts.>
+for i in n:
+    print(n)
+<code ends.>
+
+function: reuseable block, can return sth.
+<code starts.>
+def add(a, b):
+    return a + b
+<code ends.>
+
+user input:
+<code starts.>
+import sys
+input = sys.argv[1] #1 means the first input.
+<code ends.>
+running "python3 <filename>.py mamad" gives the mamad as the input.
+
+file stream:
+<code starts.>
+file_name = 'file.txt'
+
+with open(file_name, 'r') as file: #'r' for reading.
+    content = file.read()
+    print(content)
+<code ends.>
+
+classes: template for creating objects.(interview required.)
+object? instance of a class.
+attributes? datas.
+methods? functions.
+<code starts.>
+class Person:
+    def __init__()(self, name, age): #constructor.
+        self.name = name
+        self.age = age
+<code ends.>

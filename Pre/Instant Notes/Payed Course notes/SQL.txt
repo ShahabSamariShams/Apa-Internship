@@ -11,3 +11,58 @@ Relational? IDs connecting e.g. user and book(s).
 MySQL:
 mysql-secure-installation
 there exists some default dbs.
+
+------------------------------------------------------
+
+Chapter 2:
+Craeting a database -> create database <database name>;
+get in the database -> use <database name>;
+Craeting tables:
+<code starts.>
+CREATE TABLE users(
+    id INT PRIMARY KEY AUTO_INCREMENT, --users are accessable also by id that are primary keys, an it increments automatically per user.
+    username VARCHAR(50) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    age INT,
+    craeted_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+<code ends.>
+
+Inserting:
+<code starts.>
+INSERT INTO users(username. email, age)
+VALUES ('mamad', 'mamad@mail.com', 23);
+<code ends.>
+
+Selection:
+<code starts.>
+SELECT <column1>, <column2> FROM users;
+SELECT * FROM users; -- all columns from users table.
+<code ends.>
+
+Conditional:
+<code starts.>
+SELECT * FROM users WHERE username = 'mamad';
+SELECT * FROM users WHERE username = 'mamad' OR username = 'ali';
+SELECT * FROM users WHERE username = 'mamad' AND username = 'ali';
+<code ends.>
+
+a simple login query:
+<code starts.>
+SELECT * FROM users WHERE username = 'user' AND password = 'pass';
+<code ends.>
+
+Update:
+<code starts.>
+UPDATE users SET age = 45, username = 'ahmad' WHERE id = 2;
+<code ends.>
+
+Delete:
+<code starts.>
+DELETE FROM users WHERE id > 25;
+<code ends.>
+
+Describe: shows the blueprint of a table.
+<code starts.>
+DESCRIBE users;
+<code ends.>

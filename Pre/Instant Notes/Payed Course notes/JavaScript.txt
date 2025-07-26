@@ -18,4 +18,37 @@ HTML? is a standard markup lang. creates and structures content on the web. has 
  <script></script>      -> contains js codes. this get interpreted and executed by js interpreter.
  render <=> parse
 
- Browser Console? allows the developers to interavt with the js. you can see the js outputs and run js code in this environment.
+ Browser Console? allows the developers to interact with the js. you can see the js outputs and run js code in this environment.
+
+------------------------------------------------------
+
+Chapter 2:
+Some html tags might cause more http requests.(like img)
+some JavaScript codes are likewise.
+load_plans() -> a JavaScript code that updates the page.
+
+DOM? Documnet Object Model. A programming interface for web.(for JavaScript interacting with the website.)
+brower <-> js <-> DOM <-> Web page
+This enables content manipulation dynamically.
+setTimeout(<func>, miliseconds) -> execute the given function after n miliseconds.
+
+Documnet Object: an object on browser automatically built by loading every web page.
+object? group of data and related bahaviors.
+data:
+documnet.location -> your current location. has a value equal to a url path.
+documnet.cookie -> what cookie a site has set for you.
+
+Selection from DOM:
+documnet.getElementById(<attribute value>)[<content number>] //id attribute
+documnet.getElementsByName(<attribute value>)[<content number>] //name attribute
+documnet.getElementsByClassName(<attribute value>)[<content number>] //class attribute
+<code starts.>
+var headingElement = documnet.getElementById('heading'); //heading is a value for attribute "id" in tag h1.
+//headingElement is an object itself.
+var paragraphElements = documnet.getElementsByName('paragraph')[0];
+headingElement.textContent; //accessing the text content.
+headingElement.innerTexxt = 'Changed'; //can change the text.
+<code ends.>
+
+Event Handlers: invoked when a specific event occurs. has a list.
+<button onclick="alert('hi')">Hi</button>

@@ -36,3 +36,44 @@ nc <ip> <port> -> connect to this ip address and port number over tcp.
 wireshark tools:
 ip.dst==<ip> -> filters packets with a particular dst.
 follow <Protocol> stream -> observe the packets.
+
+------------------------------------------------------
+
+Chapter 2:
+DNS? Domain Name Service. it's a network protocol.(It's in the application layer.)
+Works over UDP.
+8.8.8.8:53 -> google public dns server.
+IP/UDP/DNS and then IP/TCP/HTTP.
+DNS query? a request for asking for the IP address.
+DNS client? machine sending name resolution queries.(part of the os.)
+DNS server? machine that responds to the queries.
+Name server? equal to the DNS server.
+Name Resolution? converting domain name into ip address.
+Dns client has a default dns server to send it's queries to.(Browsers likewise.)
+Top level domain(tld)? .ir, .com and so on.
+Name resolution has a hierarchial process: dns client -> dns server -> root -> name server of your tld -> name server of your domain
+
+Dns records:
+A rec: IPv4 addr.
+AAAA rec: IPv6 addr.
+CNAME: another domain name for same IP. asking for this will return the original domain name.
+MX: mail servers.
+TXT: text info.(anything)
+NS: authoritative name server.(legit name servers of a domain.)
+
+HOST FILE? manual method of name resolution. set an IP for a domain manually.
+format-> <ip> <domain name>
+it's path on linux is etc/hosts
+
+dig tool:
+a utility package for sending dns queries and receiving dns records.
+dig <record type> <domain name> -> gives the determined record type of the domain.
+
+ping tool:
+checking the reachability of a domain and gives the A record.
+ping <domain name>
+
+subl tool:
+a text editor better than damned vim.
+
+there is a dns id in hex, which is for preventing the loss of your query response that is sent back.

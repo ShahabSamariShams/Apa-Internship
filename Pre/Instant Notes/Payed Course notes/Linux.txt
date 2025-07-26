@@ -4,3 +4,81 @@ Shell? Command-line intrepreter.(human lang to machine lang.)(e.g bash, sh, zsh)
 <Shell-name> profile? shell's configuration.
 Path? directories of executable programs.
 command: echo $SHELL -> prints your shell type.
+
+------------------------------------------------------
+
+Chapter 2:
+Package Manager:either command line interface of graphical user interface.
+apt for debian based.
+yum for red hat based.
+pacman for arch.
+
+linux distribuition: customized version of linux os.
+
+linux basic commands:
+ls -> listing.
+cd -> change/open directory.
+pwd -> current directory.
+mkdir -> make a directory.
+rm -> deleting.
+cp -> copying.
+mv -> cutting.
+cat -> showa content.
+echo -> printing. mostly environmental variables like $SHELL.
+wget -> downloading.
+id -> who am I?(detailed.)
+whoami -> who am I?(no detail.)
+uname -> your kernel version and date.
+ps -> processes that are running.
+du -> file volume.
+
+directories: directories are hierarchial. all starts from the root or '/'.
+important paths:
+/bin -> binary executable files.
+/etc -> system configuration files.(we look for poc in here.)
+/home -> user's personal files and settings.
+/root -> home directory of the root user or the superuser.
+/var -> variable data like logs and databases. also the DocumnetRoot of web servers.
+/temp -> stores files temporarily.(bounty programs testing happens here for safety.)
+
+Some Important Files:
+/etc/passwd -> user account information. except for passwords. a commonality in bug bounty for proving your access. used in reports.
+/etc/shadow -> stores encrypted passwords for user accounts. passwords are hashed.
+/etc/group -> information about user groups. 
+/etc/hosts -> maps ip addresses to host names.
+/etc/reslove.conf -> DNS server used for name resolution.
+/home/<username>/.ssh -> sensitive SSH file for the user.
+point: passwd is Nobody Readable.(everyone can read this.)
+
+Permissions:
+Read('r') -> allows the user to view the contents of a file or directory and list them.
+Write('w') -> allows modifying the content or deletion/creation of files.
+Execute('x') -> allows execution of a file or openning a directory.
+
+Identity Categories:
+User(Owner) -> user who owns the file or directory.
+Group -> a collection of users who share common access rights.
+Others -> everyone else.(like Nobody. it's rather relative. two usres can be Nobody to each other.)
+
+drwxr-xr-x   8 root                 root                  4096 Jul 23 09:06 apache2
+d -> it's a dir. can be '-' meaning it's a file.
+rwx -> Permissions of the user.
+r-x -> Permissions of the group.
+r-x -> Permissions of Nobody.
+root (the first one.) -> user.
+root (the seconf one.) -> the group.
+apache2 -> the name.
+
+Authorization? access control, rights of the user.
+Authentication? verifying the user's identity.
+
+SUDO? SuperUser DO. execute a command as the root. user should be a sudoer.(grannted by the root.)
+sudo -i -> permanent root.
+
+SSH? cryptographic network protocol. to reach a remote shell. requires authentication.
+ssh <user>@<ip>:<port> -> IP/TCP/SSH
+connects to port 22 by default if the port's not given.
+
+sudo adduser <username> -> adding a new user.
+su <username> -> entering a user.
+visudo etc/sudoers -> add the user name under the root and copy root's stuff ifront of it.(use ctrl+x, y, enter, to save. it's a nano editor.)
