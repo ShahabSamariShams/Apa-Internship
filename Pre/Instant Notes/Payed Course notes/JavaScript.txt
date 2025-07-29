@@ -1,4 +1,5 @@
 Chapter 1:
+
 Why? Every web site has js, Exploit and Discovery of vulnerabilities(XSS), bypass security devices(Firewalls), narrow recon conduction.
 client <-> browser <-> html/js <-> server
 rendering? execution of html code in a graphic form.
@@ -23,6 +24,7 @@ HTML? is a standard markup lang. creates and structures content on the web. has 
 ------------------------------------------------------
 
 Chapter 2:
+
 Some html tags might cause more http requests.(like img)
 some JavaScript codes are likewise.
 load_plans() -> a JavaScript code that updates the page.
@@ -52,3 +54,71 @@ headingElement.innerTexxt = 'Changed'; //can change the text.
 
 Event Handlers: invoked when a specific event occurs. has a list.
 <button onclick="alert('hi')">Hi</button>
+
+------------------------------------------------------
+
+Chapter 3:
+
+variables:
+var name = "Mamad";
+let name = "Mamad";
+const age = 13;
+
+Data types:
+let isTrue = True; //boolean.
+let colors = ["red", "green", "blue"]; //arrays.
+
+objects:
+<code starts.>
+let person = {
+    firstName: "Mamad",
+    lastName: "Mamadi"
+}
+<code ends.>
+
+Conditions:
+<code starts.>
+let age = 20;
+
+if(age < 30){
+    alert("<30")
+}else{
+    alert("30>")
+}
+<code ends.>
+
+loop:
+<code starts.>
+let numbers = [1, 2, 3, 4, 5];
+for(let i = 0; i < numbers.length; i++){
+    console.log(numbers[i]);
+}
+<code ends.>
+
+functions*: there are three types of functions.
+first type:
+<code starts.>
+functions showMessage(from, text){
+    alert(from + ': ' + text);
+}
+
+showMessage('karim', 'yo');
+<code ends.>
+
+second type: function expression.
+<code starts.>
+let sayHi = function(){
+    alert("Hi");
+};
+<code ends.>
+
+third type: arrow functions.
+<code starts.>
+let sum = (a, b) => {
+    return a + b;
+};
+<code ends.>
+
+Debugging: process of finding and fixing errors.
+developers tools make debugging simple.
+you can make breakpoint by clicking on the lines's number on inspector debugging section.(refresh afterwards.)

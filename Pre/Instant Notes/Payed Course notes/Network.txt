@@ -1,4 +1,5 @@
 Chapter 1:
+
 Why network? internet's universality. Exploitation and discovery. security device bypassing. side recon conduction.
 Bypass? circumventing security measures.
 Exploit? taking advantage of vulnerabilities.
@@ -40,6 +41,7 @@ follow <Protocol> stream -> observe the packets.
 ------------------------------------------------------
 
 Chapter 2:
+
 DNS? Domain Name Service. it's a network protocol.(It's in the application layer.)
 Works over UDP.
 8.8.8.8:53 -> google public dns server.
@@ -77,3 +79,73 @@ subl tool:
 a text editor better than damned vim.
 
 there is a dns id in hex, which is for preventing the loss of your query response that is sent back.
+
+------------------------------------------------------
+
+Chapter 3:
+
+Part 1: Web Server
+Serving resources to the users by HTTP protocol.(FTP server uses FTP.) -> IP/TCP/HTTP (UDP is also possible.)
+like apache, nginx(it's used mostly for it's load balancer and reverse proxy features.)
+
+Configuration:
+main Configuration: main setting of your web server. -> etc/apache2/apache2.conf
+several sub-configuration files also exist. how?
+-> using directive: IncludeOptional
+directive? a configuration command to change settings.
+IncludeOptional another.conf
+
+Some Directives:
+DocumentRoot -> directory where files an folders are.
+ServerName -> hostname of a virtual host.
+Listen -> the IP and port where apache is bound. ip 127.0.0.1 -> local host, 0.0.0.0 -> connetion from everybody is accepeted.
+default port is 80.
+ErrorLog -> location of the error files.
+Include -> like the IncludeOptional.
+Directory -> to enclose a grooup of directives. have a group of directives on a directory.
+Files -> to limit the scope of the enclosed directives.(e.g not showing some files to the user.)
+IfModule -> directives only applied if module is present.(e.g if ssl module exists, do som shit.)
+
+Apache needs to start as root. listening socket on privileged ports(ports that need higher access).(but, running as root and remaining root
+id not  a good thing.) So how?
+->  Uses the root to run itself, then uses setuid to switch to user.(downgrade it's privileges)
+setuid? execute a program with the permissions of the program's owner.
+www-data is the server's user.
+
+Work Flow: process of a happentance or function.
+mamad searched for a site:
+DNS -> TCP handshake(TCP/IP connection)(No domain exists here) -> SSL handshake -> HTTP packet
+(domain has a partial presence in ssl and http packet.)
+
+Document root: where the web server searches for what user has asked for.
+
+Virtual Host: multiole hosts on server.(multiple sites, multiple document roots.)
+
+Part 2:
+apcahe installation:
+sudo apt update
+sudo apt install apache2
+
+|User ${APACHE_RUN_USER}  | what user and group should apache2 downgrade to when exiting root.
+|Group ${APACHE_RUN_GROUP}|
+if host header (http) does not match anything in apache sites, it brings the first one up.
+
+sites-enabled -> working hosts. host conf files are here.
+sites-available -> non operative hosts. host conf files are here.
+
+ServerName doesn't exist by default/ buut you can add it.(or not.)
+
+command: a2ensite mamadvirtual.conf -> brings the conf file to sites-enabled from sites-available, links it to the conf file an it's doc root in 
+var/www/html/
+command: a2dissite sitename -> disables the site.
+you need to restart apache service in order to make your site work.
+command: systemctl reload apache2 -> restarts apache service.
+
+"host1.conf -> ../sites-available/000-default.conf" -> being linked to a conf file.
+
+index file is the file that gets loaded by default.
+
+for searching non default virtual hosts, you need to add them to your hosts file. error is sth like "can't resolve".
+
+command -> python3 -m http.server 9000
+web server on port 9000. fucking weird and requires more probing.

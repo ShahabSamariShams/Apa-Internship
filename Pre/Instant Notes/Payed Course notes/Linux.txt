@@ -1,4 +1,5 @@
 Chapter 1:
+
 Why linux? Discovery and Exploitation of vulnerabilities and privilege escalation. Servers are mostly on linux.
 Shell? Command-line intrepreter.(human lang to machine lang.)(e.g bash, sh, zsh)(bash and zsh are improved versions of sh.)
 <Shell-name> profile? shell's configuration.
@@ -7,7 +8,8 @@ command: echo $SHELL -> prints your shell type.
 
 ------------------------------------------------------
 
-Chapter 2:
+Chapter 2: 
+
 Package Manager:either command line interface of graphical user interface.
 apt for debian based.
 yum for red hat based.
@@ -82,3 +84,79 @@ connects to port 22 by default if the port's not given.
 sudo adduser <username> -> adding a new user.
 su <username> -> entering a user.
 visudo etc/sudoers -> add the user name under the root and copy root's stuff ifront of it.(use ctrl+x, y, enter, to save. it's a nano editor.)
+
+------------------------------------------------------
+
+Chapter 3:
+
+I/O stream:
+stdin? used to read user input, file descriptor(fd) 0. fd is a number given to a particular process.
+stdout? used to display output on terminal. fd 1.
+stderr? used to display error messages on terminal. fd 2.
+
+'>' -> redirects standard output to a file.
+id > output -> write id result in the given file.
+id 2> output -> if id gave you an error, write the error in the given output file.
+id 2>&1 -> turn stderr into stdout.
+id &> file -> write both stderr and stdout in a file.
+id &> /dev/null -> an os blackhole. os will devour what you give it. so you won't have any output.
+
+'<' -> redirects standard input from a file.
+
+'>>' -> appends standard output to a file.(file previous content won't be deleted.)
+
+'|' -> pipe operator. output of one command as the input of another one. stdout to stdin.
+cm1 | cm2 -> output of sm1 as the input of cm2.
+
+run a command in background -> command '&'
+
+Seperators:
+';' -> cm1;cm2
+
+Operators:
+cm1 && cm2 -> 2 will be executed if 1 completes "successfully".
+cm1 || cm2 -> 2 will be executed if 1 fails.
+
+if: 
+<code starts.>
+number=10
+if [ $number -gt 5 ]; then #greater than.
+    echo "greater"
+else
+    echo "smaller or equal"
+fi
+<code ends.>
+
+loop:
+
+while: point -> it accepts stdin.
+<code starts.>
+count=1
+while [$count -le 5]; #little or equal.
+do
+    echo "val: $count"
+    ((count++))       #((...)) is for doing mathematical calculations.
+done
+<code ends.>
+
+for:
+<code starts.>
+fruits = ("apple" "orange" "bannana")
+for fruit in "${$fruits[@]}";
+do
+    echo "$fruit"
+done
+<code ends.>
+
+Command Substitution:
+run a command within a subshell and capture it's output.
+$(command) OR `command`
+
+e.g -> host mamad.com &> /dev/null && echo "resolved" => you will realise if mamad.com was resolved in a single word.
+
+subfinder tool -> for finding the subdomains of a site. => subfinder -d mamad.ir
+
+sleep 5 => sleep for 5 secs.
+sleep 5 & => run on background.
+
+host tool => host <ip/domain> -> resolve an ip to domain or a domain to an ip.

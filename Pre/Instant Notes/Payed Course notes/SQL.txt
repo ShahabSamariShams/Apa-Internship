@@ -1,4 +1,5 @@
 Chapter 1:
+
 Why? SQLi, Mass Assignment, and IDOR.
 Why database? manageable, efficient storing, easier organize, access and analyze.
 SQL? structured query lang. manage relational dbs. enables user interaction with db.(owasp related.)
@@ -15,6 +16,7 @@ there exists some default dbs.
 ------------------------------------------------------
 
 Chapter 2:
+
 Craeting a database -> create database <database name>;
 get in the database -> use <database name>;
 Craeting tables:
@@ -66,3 +68,21 @@ Describe: shows the blueprint of a table.
 <code starts.>
 DESCRIBE users;
 <code ends.>
+
+------------------------------------------------------
+
+Chapter 3:
+
+Union Select: to combine the results of multiple SELECT query. it's a method for data extraction.
+<code starts.>
+SELECT username, email FROM users UNION SELECT something1, something2 FROM anotherTable;
+<code ends.>
+number of columns on both sides should be equal. if not, an error occurs that is useful in SQLi.
+
+Order by: used to sort the results.
+<code starts.>
+SELECT x, y, z FROM users ORDER BY y; --can place 2 instead of y, meaning the second foretold column.
+SELECT x, y, z FROM users ORDER BY 2;
+<code ends.>
+what if I insert a column number that is more than the number of columns declared?
+you will receive an error, that is useful in SQLi.

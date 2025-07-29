@@ -1,4 +1,5 @@
 Chapter 1:
+
 Why? Web app comprehension, automation, tool making, exploitation.
 Programming? process code creation, understandable and executable by comp.
 Interpreter or Compiler.
@@ -71,3 +72,64 @@ class Person:
         self.name = name
         self.age = age
 <code ends.>
+
+------------------------------------------------------
+
+Chapter 3:
+
+JSON: a lightweight data format. machine to machine communication.(between two langs.)
+almost alike dictionary in Python:
+data = {"name": "mamad", "age": 30, "city": "hamedan"}
+In network, only strings are transmitted.
+JSON somehow manages to keep the data types while being transmitted.
+
+access data like this: data['name']
+
+data = '{"name": "mamad", "age": 30, "city": "hamedan"}'
+looks like json, but it's a string.
+this string is received. it get's parsed into json.
+parse? analyzing a sequence of characters or data.
+a parser turns the string into json. it exists in python and JavaScript by default.
+parse it like this:
+<code starts.>
+import json
+json_data = json.load(data)
+print(json_data['name'])
+<code ends.>
+importing is not needed on JavaScript.
+
+reverse of parsing is also possible:
+<code starts.>
+data = json.dumps({"name": "mamad", "age": 30, "city": "hamedan"}) #flatter/simple string.
+<code ends.>
+
+one machine parse a json into string -> sends it across the network -> other machine parses the string to json.
+
+Regex: regular expression. a powerful tool used for pattern matching and string manipulation.
+email_pattern_regex = r'\b[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-z|A-Z]{2,7}\b'
+\w -> word.
+\d -> digit.     /d{n} -> n digits.
+\s -> white spaces.(enter, spaces, etc.)
+if you write the letter in upper case, it's not version.
+'.' -> anything but newline. //write \. for actual dots.
+'^' -> start.
+'\' -> escaper. tells the parser to avoid parsing the next character.
+'$' -> end.
+'|' -> or.
+(<sth>) -> group caturing sth.
+\t -> tab.
+\n -> linefeed.
+\r -> carriage return.
+? -> optional.
++ -> one or more.
+* -> zero or more.
+
+import re library to use regex on python.
+MyRegex = r'your regex'
+results = re.findall(MyRegex, myFile) 
+
+examples: data="\w+" -> find the given string, and anyword can exist in the double quotes that has more than one letter.
+data="(\w+)" -> if you use this one, only the value of data will be stored with no redundancy.
+
+A json might be in another json. in that case ypu can access the data of inner json like a 2 dimension array.
+use  RegexPal website to apply your given regex on a given string.
